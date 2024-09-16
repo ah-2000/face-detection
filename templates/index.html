@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Matching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Centering the container */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+        }
+
+        /* Styling for the card */
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 350px;
+            text-align: center;
+        }
+
+        /* Form element styling */
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        button, input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Face Verification Card -->
+        <div class="card">
+            <form action="/" method="post" enctype="multipart/form-data">
+                <h1>Face Verification</h1>
+                <label for="img1">Compared Image</label>
+                <input type="file" name="img1" required><br>
+                <label for="img2">Reference Image</label>
+                <input type="file" name="img2" required><br>
+                <input type="submit" value="Upload">
+            </form>
+        </div>
+
+        <!-- Face Matching Card -->
+        <div class="card">
+            <form action="/match_faces_with_db" method="post" enctype="multipart/form-data">
+                <h1>Upload an Image to Match Faces</h1>
+                <input type="file" name="input_img" accept="image/*" required>
+                <button type="submit">Upload and Match</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

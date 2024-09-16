@@ -1,0 +1,157 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Matching Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        img {
+            max-width: 25%;
+            height: auto;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Face Matching Results</h1>
+    {% if match_image %}
+        <h2>Matched Face</h2>
+        <img src="data:image/jpeg;base64,{{ match_image_base64 }}" alt="Matched Faces">
+    {% else %}
+        <h2>No Matches Found</h2>
+    {% endif %}
+    <a href="/">Upload another image</a>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Matching Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f3f3f3;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #666;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .image-container div {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: #fff;
+        }
+        .result-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .button-container a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-section">
+        {% if img1_data and img2_data %}
+        <h1>Verification Results</h1>
+        <div class="image-container">
+            <div>
+                <h2>Compared Image</h2>
+                <img src="data:image/jpeg;base64,{{ img1_data }}" alt="Image 1">
+            </div>
+            <div>
+                <h2>Reference Image</h2>
+                <img src="data:image/jpeg;base64,{{ img2_data }}" alt="Image 2">
+            </div>
+        </div>
+        {% else %}
+        <h1>Face Matching Results</h1>
+        {% if match_image %}
+            <h2>Matched Face</h2>
+            <img src="data:image/jpeg;base64,{{ match_image_base64 }}" alt="Matched Faces">
+        {% else %}
+            <h2>No Matches Found</h2>
+        {% endif %}
+        {% endif %}
+    </div>
+    
+    <div class="button-container">
+        <a href="/">Upload another image</a>
+    </div>
+</body>
+</html>
